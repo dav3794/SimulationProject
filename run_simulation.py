@@ -113,7 +113,7 @@ if __name__ == '__main__':
     agents = [Agent.random_itialize(args.X, args.Y, args.init_velocity) for _ in range(args.n_agents)]
 
     if args.model == 'brownian':
-        policy = BrownianPolicy()
+        policy = BrownianPolicy(eta=args.eta)
     elif args.model == 'vicsek':
         policy = VicsekPolicy(eta=args.eta)
     elif args.model == 'local_interaction':
