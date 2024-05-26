@@ -55,7 +55,10 @@ def parse_args():
     subparsers = parser.add_subparsers(dest='model', help='Model of simulation.')
 
     # Brownian policy
-    brownian_parser = subparsers.add_parser('brownian', help='Brownian motion model.')
+    brownian_parser = subparsers.add_parser(
+        'brownian', 
+        help='Brownian motion model.'
+    )
     brownian_parser.add_argument(
         '--eta', 
         type=float, 
@@ -64,7 +67,10 @@ def parse_args():
     )
 
     # Vicsek policy
-    vicsek_parser = subparsers.add_parser('vicsek', help='Vicsek model of collective motion.')
+    vicsek_parser = subparsers.add_parser(
+        'vicsek', 
+        help='Vicsek model of collective motion.'
+    )
     vicsek_parser.add_argument(
         '--eta', 
         type=float, 
@@ -72,8 +78,11 @@ def parse_args():
         help='Noise level. Default is 2.'
     )
 
-    # interaction policy
-    interaction_parser = subparsers.add_parser('local_interaction', help='Vicsek-like model with attraction/repulsion within certain radius.')
+    # Interaction policy
+    interaction_parser = subparsers.add_parser(
+        'local_interaction', 
+        help='Vicsek-like model with attraction/repulsion within certain radius.'
+    )
     interaction_parser.add_argument(
         '--type', 
         choices=['attraction', 'repulsion'], 
@@ -110,7 +119,10 @@ def parse_args():
 if __name__ == '__main__':
     args = parse_args()
 
-    agents = [Agent.random_itialize(args.X, args.Y, args.init_velocity) for _ in range(args.n_agents)]
+    agents = [
+        Agent.random_itialize(args.X, args.Y, args.init_velocity) 
+        for _ in range(args.n_agents)
+        ]
 
     if args.model == 'brownian':
         policy = BrownianPolicy(eta=args.eta)
