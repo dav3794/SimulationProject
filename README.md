@@ -1,8 +1,8 @@
-## Simulations of collective behaviour
+# Simulations of collective behaviour
 
 The aim of this project is to implement simulations of collective behaviours according to selected physical models. It was made for the Introduction to physics of complexity - Statistical physics of complex networks course.
 
-#### Installation
+## Installation
 
 All scripts require `Python >= 3.8`. To install required packages, simply run:
 
@@ -10,7 +10,7 @@ All scripts require `Python >= 3.8`. To install required packages, simply run:
 pip install -r requrements.txt
 ```
 
-#### Usage
+## Usage
 
 All simulations can be run by `run_simulation.py` script.
 
@@ -42,7 +42,7 @@ options:
 
 Currently, there are three models of group behaviour simulations:
 
-1. Brownian - Brownian motion model, assuming no interactions between agents. Their direction of movement changes only due to random noise. Usage:
+1. **Brownian** - Brownian motion model, assuming no interactions between agents. Their direction of movement changes only due to random noise. Usage:
 
    ```
    usage: run_simulation.py brownian [-h] [--eta ETA]
@@ -51,7 +51,7 @@ Currently, there are three models of group behaviour simulations:
      -h, --help  show this help message and exit
      --eta ETA   Noise level. Default is 2.
    ```
-2. Vicsek - Vicsek motion model proposed in [[Vicsek T. et all, 1995]](https://journals.aps.org/prl/abstract/10.1103/PhysRevLett.75.1226). Usage:
+2. **Vicsek** - Vicsek motion model proposed in [[Vicsek T. et all, 1995]](https://journals.aps.org/prl/abstract/10.1103/PhysRevLett.75.1226). Usage:
 
    ```
    usage: run_simulation.py vicsek [-h] [--eta ETA]
@@ -60,7 +60,7 @@ Currently, there are three models of group behaviour simulations:
      -h, --help  show this help message and exit
      --eta ETA   Noise level. Default is 2.
    ```
-3. Local interaction - Vicsek-like motion model, where the changes in movement direction are described by either attraction or repulsion of agents within a given radius. Usage:
+3. **Local interaction** - Vicsek-like motion model, where the changes in movement direction are described by either attraction or repulsion of agents within a given radius. Usage:
 
    ```
    usage: run_simulation.py local_interaction [-h] --type {attraction,repulsion} [--g G] [--interaction_radius INTERACTION_RADIUS] [--eta ETA]
@@ -77,8 +77,7 @@ Currently, there are three models of group behaviour simulations:
 
 Running simulation will open browser tab with two plots - simulation of agents movements and their mass centre trajectory. To see the simulation, simply click on 'Play' button at the bottom of the page.
 
-
-#### Examples
+## Examples
 
 * If you would like to simulate Brownian motion of `N = 30` particles with `V0 = 1` in a `25x25` box with `reflective` boundary conditions and `eta = 4` for `t = 500` time frames, you can run:
 
