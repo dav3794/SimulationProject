@@ -7,7 +7,7 @@ The aim of this project is to implement simulations of collective behaviours acc
 All scripts require `Python >= 3.8`. To install required packages, simply run:
 
 ```
-pip install -r requrements.txt
+pip install -r requirements.txt
 ```
 
 ## Usage
