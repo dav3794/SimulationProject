@@ -1,7 +1,7 @@
 #!/usr/bin/python3 
 
 import argparse
-import matplotlib.pyplot as plt
+import plotly.graph_objects as go
 
 from Cell import Cell
 from Agent import Agent
@@ -141,10 +141,13 @@ if __name__ == '__main__':
 
     history, average_speed, average_theta = cell.simulate(args.n_frames)
 
-    # plt.plot(list(range(args.n_frames)), average_theta)
-    # plt.xlabel('Time frame')
-    # plt.ylabel('Average theta')
-    # plt.title('Average theta over time')
-    # plt.show()
+    # fig = go.Figure()
+    # fig.add_trace(go.Scatter(x=list(range(args.n_frames)), y=average_theta, mode='lines', name='Average theta'))
+    # fig.update_layout(
+    #     title='Average theta over time',
+    #     xaxis_title='Time frame',
+    #     yaxis_title='Average theta'
+    # )
+    # fig.show()
 
     plot_simulation(history, args.X, args.Y)
