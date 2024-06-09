@@ -43,22 +43,27 @@ class Cell:
         """Return the state of the cell."""
         x, y = [], []
         v_avg = np.zeros(2)
+        theta_avg = 0
         for agent in self.agents:
             x.append(agent.x)
             y.append(agent.y)
+            theta_avg += agent.theta_0
             v_avg[0] += agent.v_0 * np.cos(agent.theta_0)
             v_avg[1] += agent.v_0 * np.sin(agent.theta_0)
 
         v_avg = np.linalg.norm(v_avg) / len(self.agents)
-        return x, y, v_avg
+        theta_avg /= len(self.agents)
+        return x, y, v_avg, theta_avg
     
     def simulate(self, T: int):
         """Simulate the cell for T frames."""
         history = []
         average_speed = []
+        average_theta = []
         for _ in range(T):
             self.update()
-            x, y, v_avg = self.return_state()
+            x, y, v_avg, theta_avg = self.return_state()
             history.append((x, y))
             average_speed.append(v_avg)
-        return history, average_speed
+            average_theta.append(theta_avg)
+        return history, average_speed, average_theta
